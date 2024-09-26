@@ -8,6 +8,7 @@ import (
 	"os/signal"
 
 	"github.com/NibiruChain/nibiru/app"
+	"github.com/NibiruChain/nibiru/app/appconst"
 	"github.com/NibiruChain/pricefeeder/config"
 	"github.com/NibiruChain/pricefeeder/feeder"
 	"github.com/NibiruChain/pricefeeder/feeder/eventstream"
@@ -49,7 +50,7 @@ var rootCmd = &cobra.Command{
 	Short: "Pricefeeder daemon for posting prices to Nibiru Chain",
 	Run: func(cmd *cobra.Command, args []string) {
 		logger := setupLogger()
-		app.SetPrefixes(app.AccountAddressPrefix)
+		app.SetPrefixes(appconst.AccountAddressPrefix)
 
 		c := config.MustGet()
 
@@ -73,6 +74,10 @@ var rootCmd = &cobra.Command{
 
 		select {}
 	},
+}
+
+func init() {
+	rootCmd.PersistentFlags().Bool("debug", false, "sets log level to debug")
 }
 
 func Execute() {

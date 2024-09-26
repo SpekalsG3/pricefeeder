@@ -9,6 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/cosmos/go-bip39"
 )
 
@@ -70,11 +71,11 @@ func (p privKeyKeyring) KeyByAddress(address sdk.Address) (*keyring.Record, erro
 	return keyring.NewLocalRecord(p.addr.String(), p.privKey, p.pubKey)
 }
 
-func (p privKeyKeyring) Sign(uid string, msg []byte) ([]byte, cryptotypes.PubKey, error) {
-	return p.SignByAddress(p.addr, msg)
+func (p privKeyKeyring) Sign(uid string, msg []byte, mode signing.SignMode) ([]byte, cryptotypes.PubKey, error) {
+	return p.SignByAddress(p.addr, msg, mode)
 }
 
-func (p privKeyKeyring) SignByAddress(address sdk.Address, msg []byte) ([]byte, cryptotypes.PubKey, error) {
+func (p privKeyKeyring) SignByAddress(address sdk.Address, msg []byte, _ signing.SignMode) ([]byte, cryptotypes.PubKey, error) {
 	if !p.addr.Equals(address) {
 		return nil, nil, fmt.Errorf("key not found")
 	}

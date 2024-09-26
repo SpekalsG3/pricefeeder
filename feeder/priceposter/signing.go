@@ -39,7 +39,7 @@ func sendTx(
 	}
 
 	txBuilder.SetFeeAmount(sdk.NewCoins(sdk.NewInt64Coin("unibi", 125)))
-	txBuilder.SetGasLimit(5_000)
+	txBuilder.SetGasLimit(100_000)
 
 	// get acc info, can fail
 	accNum, sequence, err := getAccount(ctx, authClient, ir, feeder)
@@ -55,7 +55,7 @@ func sendTx(
 		WithSequence(sequence)
 
 	// sign tx, can't fail
-	err = tx.Sign(txFactory, keyInfo.Name, txBuilder, true)
+	err = tx.Sign(ctx, txFactory, keyInfo.Name, txBuilder, true)
 	if err != nil {
 		panic(err)
 	}

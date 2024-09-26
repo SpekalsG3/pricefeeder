@@ -20,7 +20,7 @@ run:
 	go run ./main.go
 
 run-debug:
-	go run ./main.go -debug true
+	go run ./main.go --debug
 
 ###############################################################################
 ###                                Build                                    ###

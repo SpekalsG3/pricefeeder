@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"math/big"
 
+	sdkmath "cosmossdk.io/math"
+
 	oracletypes "github.com/NibiruChain/nibiru/x/oracle/types"
 	"github.com/NibiruChain/pricefeeder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -120,7 +122,7 @@ func newPrevote(prices []types.Price, validator sdk.ValAddress, feeder sdk.AccAd
 	}
 }
 
-func float64ToDec(price float64) sdk.Dec {
+func float64ToDec(price float64) sdkmath.LegacyDec {
 	// TODO(mercilex): precision for numbers with a lot of decimal digits
-	return sdk.MustNewDecFromStr(fmt.Sprintf("%f", price))
+	return sdkmath.LegacyMustNewDecFromStr(fmt.Sprintf("%f", price))
 }
