@@ -5,10 +5,10 @@ import (
 	"crypto/tls"
 	"time"
 
-	"github.com/NibiruChain/nibiru/app"
-	oracletypes "github.com/NibiruChain/nibiru/x/oracle/types"
 	"github.com/NibiruChain/pricefeeder/metrics"
 	"github.com/NibiruChain/pricefeeder/types"
+	"github.com/archway-network/archway/app"
+	oracletypes "github.com/archway-network/archway/x/oracle/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"

@@ -24,7 +24,7 @@ The `pricefeeder` is a tool developed for Nibiru's [Oracle Module consensus](htt
 Running a `feeder` requires the setting environment variables in your `.env` in like the following:
 
 ```ini
-CHAIN_ID="nibiru-localnet-0"
+CHAIN_ID="archway-localnet-0"
 GRPC_ENDPOINT="localhost:9090"
 WEBSOCKET_ENDPOINT="ws://localhost:26657/websocket"
 FEEDER_MNEMONIC="guard cream sadness conduct invite crumble clock pudding hole grit liar hotel maid produce squeeze return argue turtle know drive eight casino maze host"

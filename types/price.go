@@ -3,8 +3,8 @@ package types
 import (
 	"time"
 
-	"github.com/NibiruChain/nibiru/x/common/asset"
-	"github.com/NibiruChain/nibiru/x/common/set"
+	"github.com/archway-network/archway/x/common/asset"
+	"github.com/archway-network/archway/x/common/set"
 	"github.com/rs/zerolog"
 )
 

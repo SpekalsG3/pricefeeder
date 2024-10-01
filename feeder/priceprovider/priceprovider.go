@@ -5,10 +5,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/NibiruChain/nibiru/x/common/asset"
-	"github.com/NibiruChain/nibiru/x/common/set"
 	"github.com/NibiruChain/pricefeeder/feeder/priceprovider/sources"
 	"github.com/NibiruChain/pricefeeder/types"
+	"github.com/archway-network/archway/x/common/asset"
+	"github.com/archway-network/archway/x/common/set"
 	"github.com/rs/zerolog"
 )
 

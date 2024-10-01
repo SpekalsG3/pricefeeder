@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/NibiruChain/nibiru/x/common/asset"
-	oracletypes "github.com/NibiruChain/nibiru/x/oracle/types"
+	"github.com/archway-network/archway/x/common/asset"
+	oracletypes "github.com/archway-network/archway/x/oracle/types"
 )
 
 // ParamsFromOracleParams converts oracletypes.Params into

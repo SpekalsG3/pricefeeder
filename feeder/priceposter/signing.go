@@ -38,7 +38,7 @@ func sendTx(
 		panic(err)
 	}
 
-	txBuilder.SetFeeAmount(sdk.NewCoins(sdk.NewInt64Coin("unibi", 125)))
+	txBuilder.SetFeeAmount(sdk.NewCoins(sdk.NewInt64Coin("stake", 125)))
 	txBuilder.SetGasLimit(100_000)
 
 	// get acc info, can fail

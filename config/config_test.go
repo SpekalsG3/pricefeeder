@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/NibiruChain/nibiru/app"
+	"github.com/archway-network/archway/app"
 	"github.com/stretchr/testify/require"
 )
 
@@ -13,7 +13,7 @@ func init() {
 }
 
 func TestConfig_Get(t *testing.T) {
-	os.Setenv("CHAIN_ID", "nibiru-localnet-0")
+	os.Setenv("CHAIN_ID", "archway-localnet-0")
 	os.Setenv("GRPC_ENDPOINT", "localhost:9090")
 	os.Setenv("WEBSOCKET_ENDPOINT", "ws://localhost:26657/websocket")
 	os.Setenv("FEEDER_MNEMONIC", "earth wash broom grow recall fitness")
@@ -28,7 +28,7 @@ func TestConfig_Get(t *testing.T) {
 
 func TestConfig_Without_EXCHANGE_SYMBOLS_MAP(t *testing.T) {
 	os.Unsetenv("EXCHANGE_SYMBOLS_MAP")
-	os.Setenv("CHAIN_ID", "nibiru-localnet-0")
+	os.Setenv("CHAIN_ID", "archway-localnet-0")
 	os.Setenv("GRPC_ENDPOINT", "localhost:9090")
 	os.Setenv("WEBSOCKET_ENDPOINT", "ws://localhost:26657/websocket")
 	os.Setenv("FEEDER_MNEMONIC", "earth wash broom grow recall fitness")

@@ -9,10 +9,10 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/NibiruChain/nibiru/x/common/asset"
-	"github.com/NibiruChain/nibiru/x/common/denoms"
 	"github.com/NibiruChain/pricefeeder/types"
 	mocks "github.com/NibiruChain/pricefeeder/types/mocks"
+	"github.com/archway-network/archway/x/common/asset"
+	"github.com/archway-network/archway/x/common/denoms"
 )
 
 func TestRunPanics(t *testing.T) {
