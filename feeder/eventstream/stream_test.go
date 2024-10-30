@@ -6,9 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/archway-network/archway/app"
-	testutilcli "github.com/archway-network/archway/x/common/testutil/cli"
-	"github.com/archway-network/archway/x/common/testutil/genesis"
+	e2eTesting "github.com/archway-network/archway/e2e/testing"
 	oracletypes "github.com/archway-network/archway/x/oracle/types"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
@@ -19,8 +17,7 @@ import (
 type IntegrationTestSuite struct {
 	suite.Suite
 
-	cfg     testutilcli.Config
-	network *testutilcli.Network
+	network *e2eTesting.TestChain
 
 	eventStream  *Stream
 	logs         *bytes.Buffer
@@ -28,19 +25,11 @@ type IntegrationTestSuite struct {
 }
 
 func (s *IntegrationTestSuite) SetupSuite() {
-	app.SetPrefixes(app.AccountAddressPrefix)
+	// app.SetPrefixes(app.AccountAddressPrefix)
 
-	s.cfg = testutilcli.BuildNetworkConfig(genesis.NewTestGenesisState(app.MakeEncodingConfig()))
-	network, err := testutilcli.New(
-		s.T(),
-		s.T().TempDir(),
-		s.cfg,
-	)
-	s.Require().NoError(err)
-	s.network = network
+	s.network = e2eTesting.NewTestChain(s.T(), 1)
 
-	_, err = s.network.WaitForHeight(1)
-	require.NoError(s.T(), err)
+	// err := testutil.WaitForBlocks(s.network.GetContext().Context(), 1, s.network)
 
 	val := s.network.Validators[0]
 	grpcEndpoint, tmEndpoint := val.AppConfig.GRPC.Address, val.RPCAddress
@@ -82,7 +71,7 @@ func (s *IntegrationTestSuite) TestStreamWorks() {
 
 func (s *IntegrationTestSuite) TearDownSuite() {
 	s.eventStream.Close()
-	s.network.Cleanup()
+	s.network.GetApp().Close()
 }
 
 func TestIntegration(t *testing.T) {

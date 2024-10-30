@@ -3,8 +3,8 @@ package types
 import (
 	"time"
 
-	"github.com/archway-network/archway/x/common/asset"
-	"github.com/archway-network/archway/x/common/set"
+	"github.com/archway-network/archway/types/set"
+	"github.com/archway-network/archway/x/oracle/asset"
 	"github.com/rs/zerolog"
 )
 

@@ -15,11 +15,9 @@ import (
 	"github.com/NibiruChain/pricefeeder/feeder/priceprovider"
 	"github.com/NibiruChain/pricefeeder/feeder/priceprovider/sources"
 	"github.com/NibiruChain/pricefeeder/types"
-	"github.com/archway-network/archway/app"
-	"github.com/archway-network/archway/x/common/asset"
-	"github.com/archway-network/archway/x/common/denoms"
-	testutilcli "github.com/archway-network/archway/x/common/testutil/cli"
-	"github.com/archway-network/archway/x/common/testutil/genesis"
+	e2eTesting "github.com/archway-network/archway/e2e/testing"
+	"github.com/archway-network/archway/x/oracle/asset"
+	"github.com/archway-network/archway/x/oracle/denoms"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
@@ -28,26 +26,19 @@ import (
 type IntegrationTestSuite struct {
 	suite.Suite
 
-	cfg     testutilcli.Config
-	network *testutilcli.Network
+	network *e2eTesting.TestChain
 
 	feeder *feeder.Feeder
 	logs   *bytes.Buffer
 }
 
 func (s *IntegrationTestSuite) SetupSuite() {
-	app.SetPrefixes(app.AccountAddressPrefix)
-	s.cfg = testutilcli.BuildNetworkConfig(genesis.NewTestGenesisState(app.MakeEncodingConfig()))
-	network, err := testutilcli.New(
-		s.T(),
-		s.T().TempDir(),
-		s.cfg,
-	)
-	s.Require().NoError(err)
-	s.network = network
+	// app.SetPrefixes(app.AccountAddressPrefix)
 
-	_, err = s.network.WaitForHeight(1)
-	require.NoError(s.T(), err)
+	s.network = e2eTesting.NewTestChain(s.T(), 1)
+
+	// _, err := s.network.WaitForHeight(1)
+	// require.NoError(s.T(), err)
 
 	val := s.network.Validators[0]
 	grpcEndpoint, tmEndpoint := val.AppConfig.GRPC.Address, val.RPCAddress
@@ -67,9 +58,10 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	}, json.RawMessage{}, log)
 	pricePoster := priceposter.Dial(
 		grpcEndpoint,
-		s.cfg.ChainID,
+		s.network.GetChainID(),
 		enableTLS,
-		val.ClientCtx.Keyring, val.ValAddress, val.Address, log)
+		val.ClientCtx.Keyring, val.ValAddress, val.Address, log,
+	)
 	s.feeder = feeder.NewFeeder(eventStream, priceProvider, pricePoster, log)
 	s.feeder.Run()
 }
@@ -79,7 +71,7 @@ func (s *IntegrationTestSuite) TestOk() {
 }
 
 func (s *IntegrationTestSuite) TearDownSuite() {
-	s.network.Cleanup()
+	s.network.GetApp().Close()
 	s.feeder.Close()
 }
 

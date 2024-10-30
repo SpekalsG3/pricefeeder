@@ -1,6 +1,6 @@
 package types
 
-import "github.com/archway-network/archway/x/common/asset"
+import "github.com/archway-network/archway/x/oracle/asset"
 
 // PriceProvider defines an exchange API
 // which provides prices for the given assets.

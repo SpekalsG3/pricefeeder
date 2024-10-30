@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/archway-network/archway/x/common/asset"
+	"github.com/archway-network/archway/x/oracle/asset"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/joho/godotenv"
 

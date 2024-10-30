@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/NibiruChain/pricefeeder/types"
-	"github.com/archway-network/archway/x/common/set"
+	"github.com/archway-network/archway/types/set"
 	"github.com/rs/zerolog"
 )
 

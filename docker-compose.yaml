@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   price_feeder:
-    platform: linux/amd64
+    platform: linux/x86_64
     restart: always
     container_name: price_feeder
     build:

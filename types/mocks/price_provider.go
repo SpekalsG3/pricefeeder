@@ -7,7 +7,7 @@ package mock_types
 import (
 	reflect "reflect"
 
-	asset "github.com/archway-network/archway/x/common/asset"
+	asset "github.com/archway-network/archway/x/oracle/asset"
 	types "github.com/NibiruChain/pricefeeder/types"
 	gomock "github.com/golang/mock/gomock"
 )

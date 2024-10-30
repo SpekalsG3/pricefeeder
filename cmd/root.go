@@ -12,7 +12,6 @@ import (
 	"github.com/NibiruChain/pricefeeder/feeder/eventstream"
 	"github.com/NibiruChain/pricefeeder/feeder/priceposter"
 	"github.com/NibiruChain/pricefeeder/feeder/priceprovider"
-	"github.com/archway-network/archway/app"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/rs/zerolog"
 	"github.com/spf13/cobra"
@@ -49,7 +48,7 @@ var rootCmd = &cobra.Command{
 	Short: "Pricefeeder daemon for posting prices to Nibiru Chain",
 	Run: func(cmd *cobra.Command, args []string) {
 		logger := setupLogger()
-		app.SetPrefixes()
+		// app.SetPrefixes()
 
 		c := config.MustGet()
 

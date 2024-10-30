@@ -5,7 +5,7 @@ import (
 
 	"github.com/NibiruChain/pricefeeder/metrics"
 	"github.com/NibiruChain/pricefeeder/types"
-	"github.com/archway-network/archway/x/common/asset"
+	"github.com/archway-network/archway/x/oracle/asset"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/rs/zerolog"

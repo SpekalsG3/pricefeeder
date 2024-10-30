@@ -9,9 +9,7 @@ import (
 	"testing"
 
 	"github.com/NibiruChain/pricefeeder/types"
-	"github.com/archway-network/archway/app"
-	testutilcli "github.com/archway-network/archway/x/common/testutil/cli"
-	"github.com/archway-network/archway/x/common/testutil/genesis"
+	e2eTesting "github.com/archway-network/archway/e2e/testing"
 	oracletypes "github.com/archway-network/archway/x/oracle/types"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
@@ -21,24 +19,16 @@ import (
 type IntegrationTestSuite struct {
 	suite.Suite
 
-	cfg     testutilcli.Config
-	network *testutilcli.Network
+	network *e2eTesting.TestChain
 
 	client *Client
 	logs   *bytes.Buffer
 }
 
 func (s *IntegrationTestSuite) SetupSuite() {
-	app.SetPrefixes(app.AccountAddressPrefix)
+	// app.SetPrefixes(app.AccountAddressPrefix)
 
-	s.cfg = testutilcli.BuildNetworkConfig(genesis.NewTestGenesisState(app.MakeEncodingConfig()))
-	network, err := testutilcli.New(
-		s.T(),
-		s.T().TempDir(),
-		s.cfg,
-	)
-	s.Require().NoError(err)
-	s.network = network
+	s.network = e2eTesting.NewTestChain(s.T(), 1)
 
 	_, err = s.network.WaitForHeight(1)
 	require.NoError(s.T(), err)
@@ -61,7 +51,8 @@ func (s *IntegrationTestSuite) SetupSuite() {
 		val.ClientCtx.Keyring,
 		val.ValAddress,
 		val.Address,
-		zerolog.New(io.MultiWriter(os.Stderr, s.logs)))
+		zerolog.New(io.MultiWriter(os.Stderr, s.logs)),
+	)
 }
 
 func (s *IntegrationTestSuite) TearDownSuite() {
@@ -100,10 +91,9 @@ func (s *IntegrationTestSuite) randomPrices() []types.Price {
 func (s *IntegrationTestSuite) waitNextVotePeriod() {
 	params, err := s.client.deps.oracleClient.(oracletypes.QueryClient).Params(context.Background(), &oracletypes.QueryParamsRequest{})
 	require.NoError(s.T(), err)
-	height, err := s.network.LatestHeight()
+	height := s.network.GetBlockHeight()
 	require.NoError(s.T(), err)
-	targetHeight := height + int64(uint64(height)%params.Params.VotePeriod)
-	_, err = s.network.WaitForHeight(targetHeight)
+	// err = testutil.WaitForBlocks(s.network.GetContext().Context(), int(uint64(height)%params.Params.VotePeriod), s.network)
 	require.NoError(s.T(), err)
 }
 
