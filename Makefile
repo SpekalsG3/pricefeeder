@@ -26,6 +26,16 @@ run-debug:
 ###                                Build                                    ###
 ###############################################################################
 
-.PHONY: build install
-$(BUILD_TARGETS):
-	go $@ -tags "netgo,muslc" -mod=readonly -ldflags="-s -w -X github.com/NibiruChain/pricefeeder/cmd.Version=$(VERSION) -X github.com/NibiruChain/pricefeeder/cmd.CommitHash=$(COMMIT)" .
+build:
+	go build \
+	-tags "netgo,muslc" \
+	-mod=readonly \
+	-ldflags="\
+		-s -w \
+		-X github.com/NibiruChain/pricefeeder/cmd.Version=$(VERSION) \
+		-X github.com/NibiruChain/pricefeeder/cmd.CommitHash=$(COMMIT) \
+		-linkmode=external \
+		-extldflags "-static" \
+	" \
+	-o ./build/pricefeeder \
+	.

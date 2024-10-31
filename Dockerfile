@@ -32,10 +32,11 @@ RUN \
   # --mount=type=cache,target=/go/pkg \
   CGO_ENABLED=1 make build
 
+RUN file /feeder/build/pricefeeder
+
 # ----------
 FROM alpine:3.17
 
-WORKDIR /
-COPY --from=builder /feeder/pricefeeder .
-USER nonroot:nonroot
-ENTRYPOINT ["/pricefeeder"]
+COPY --from=builder /feeder/build/pricefeeder /usr/bin/pricefeeder
+
+ENTRYPOINT [ "/usr/bin/pricefeeder" ]
