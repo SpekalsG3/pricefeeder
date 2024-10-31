@@ -255,8 +255,8 @@ github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d/go.mod h1:rBZYJk5
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/apache/thrift v0.12.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
 github.com/apache/thrift v0.13.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
-github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88 h1:ZRcz//TWjLEocLIcANDuMV+tCeuDoz9asFzBiMyJv2M=
-github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88/go.mod h1:dLtTXvnBkg92vVaJ/9lqaeJF/tROICgLiC4nrpXOv6Q=
+github.com/archway-network/archway v1.0.2-0.20241031125108-b9142e351b62 h1:4jG1rW8goG/r9Z2apm9jl25JQN96f+kFiq11UcGjht4=
+github.com/archway-network/archway v1.0.2-0.20241031125108-b9142e351b62/go.mod h1:dLtTXvnBkg92vVaJ/9lqaeJF/tROICgLiC4nrpXOv6Q=
 github.com/archway-network/archway-wasmd v0.50.2-archway h1:xN743wdWUxBoRdry/bsgzcBIQglzO6c8JnTfm3sBVLc=
 github.com/archway-network/archway-wasmd v0.50.2-archway/go.mod h1:9Dl+5yBJPFVa1lvk8ApdvSmpDGKxdrWHvngEcA0ZVDY=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=

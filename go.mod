@@ -6,7 +6,7 @@ toolchain go1.23.1
 
 require (
 	cosmossdk.io/math v1.3.0
-	github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88
+	github.com/archway-network/archway v1.0.2-0.20241031125108-b9142e351b62
 	github.com/cometbft/cometbft v0.38.12
 	github.com/cosmos/cosmos-sdk v0.50.10
 	github.com/cosmos/go-bip39 v1.0.0
