@@ -257,8 +257,8 @@ github.com/apache/thrift v0.12.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb
 github.com/apache/thrift v0.13.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
 github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88 h1:ZRcz//TWjLEocLIcANDuMV+tCeuDoz9asFzBiMyJv2M=
 github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88/go.mod h1:dLtTXvnBkg92vVaJ/9lqaeJF/tROICgLiC4nrpXOv6Q=
-github.com/archway-network/archway-wasmd v0.50.1-archway-CWSA-2024-005 h1:gzVR6kPrwv89aNt0WSZuqP/3xpr+lB3jv10CVhdZy0k=
-github.com/archway-network/archway-wasmd v0.50.1-archway-CWSA-2024-005/go.mod h1:9Dl+5yBJPFVa1lvk8ApdvSmpDGKxdrWHvngEcA0ZVDY=
+github.com/archway-network/archway-wasmd v0.50.2-archway h1:xN743wdWUxBoRdry/bsgzcBIQglzO6c8JnTfm3sBVLc=
+github.com/archway-network/archway-wasmd v0.50.2-archway/go.mod h1:9Dl+5yBJPFVa1lvk8ApdvSmpDGKxdrWHvngEcA0ZVDY=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
@@ -357,8 +357,8 @@ github.com/cosmos/cosmos-db v1.0.2 h1:hwMjozuY1OlJs/uh6vddqnk9j7VamLv+0DBlbEXbAK
 github.com/cosmos/cosmos-db v1.0.2/go.mod h1:Z8IXcFJ9PqKK6BIsVOB3QXtkKoqUOp1vRvPT39kOXEA=
 github.com/cosmos/cosmos-proto v1.0.0-beta.5 h1:eNcayDLpip+zVLRLYafhzLvQlSmyab+RC5W7ZfmxJLA=
 github.com/cosmos/cosmos-proto v1.0.0-beta.5/go.mod h1:hQGLpiIUloJBMdQMMWb/4wRApmI9hjHH05nefC0Ojec=
-github.com/cosmos/cosmos-sdk v0.50.6 h1:efR3MsvMHX5sxS3be+hOobGk87IzlZbSpsI2x/Vw3hk=
-github.com/cosmos/cosmos-sdk v0.50.6/go.mod h1:lVkRY6cdMJ0fG3gp8y4hFrsKZqF4z7y0M2UXFb9Yt40=
+github.com/cosmos/cosmos-sdk v0.50.10 h1:zXfeu/z653tWZARr/jESzAEiCUYjgJwwG4ytnYWMoDM=
+github.com/cosmos/cosmos-sdk v0.50.10/go.mod h1:6Eesrx3ZE7vxBZWpK++30H+Uc7Q4ahQWCL7JKU/LEdU=
 github.com/cosmos/go-bip39 v1.0.0 h1:pcomnQdrdH22njcAatO0yWojsUnCO3y2tNoV1cb6hHY=
 github.com/cosmos/go-bip39 v1.0.0/go.mod h1:RNJv0H/pOIVgxw6KS7QeX2a0Uo0aKUlfhZ4xuwvCdJw=
 github.com/cosmos/gogogateway v1.2.0 h1:Ae/OivNhp8DqBi/sh2A8a1D0y638GpL3tkmLQAiKxTE=

@@ -28,4 +28,4 @@ run-debug:
 
 .PHONY: build install
 $(BUILD_TARGETS):
-	CGO_ENABLED=0 go $@ -mod=readonly -ldflags="-s -w -X github.com/NibiruChain/pricefeeder/cmd.Version=$(VERSION) -X github.com/NibiruChain/pricefeeder/cmd.CommitHash=$(COMMIT)" .
+	go $@ -tags "netgo,muslc" -mod=readonly -ldflags="-s -w -X github.com/NibiruChain/pricefeeder/cmd.Version=$(VERSION) -X github.com/NibiruChain/pricefeeder/cmd.CommitHash=$(COMMIT)" .

@@ -6,9 +6,9 @@ toolchain go1.23.1
 
 require (
 	cosmossdk.io/math v1.3.0
-	github.com/archway-network/archway v1.0.0
+	github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88
 	github.com/cometbft/cometbft v0.38.12
-	github.com/cosmos/cosmos-sdk v0.51.0
+	github.com/cosmos/cosmos-sdk v0.50.10
 	github.com/cosmos/go-bip39 v1.0.0
 	github.com/golang/mock v1.6.0
 	github.com/gorilla/websocket v1.5.3
@@ -213,9 +213,7 @@ require (
 )
 
 replace (
-	github.com/CosmWasm/wasmd => github.com/archway-network/archway-wasmd v0.50.1-archway-CWSA-2024-005
-	github.com/archway-network/archway => github.com/archway-network/archway v1.0.2-0.20241021111920-54292f79ba88
+	github.com/CosmWasm/wasmd => github.com/archway-network/archway-wasmd v0.50.2-archway
 
-	github.com/cosmos/cosmos-sdk v0.51.0 => github.com/cosmos/cosmos-sdk v0.50.6
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 )
